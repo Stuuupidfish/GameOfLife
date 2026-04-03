@@ -33,7 +33,7 @@ jobs:
           python -m pip install pygame-ce pygbag
 
       - name: Build web bundle
-        run: python -m pygbag --build GameOfLife.py
+        run: python -m pygbag --build main.py
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
