@@ -155,6 +155,10 @@ async def main():
 
     #quits the program
     pygame.quit()
-    sys.exit()
 
-asyncio.run(main())
+
+if sys.platform == "emscripten":
+    # pygbag already has a running event loop
+    asyncio.ensure_future(main())
+else:
+    asyncio.run(main())
