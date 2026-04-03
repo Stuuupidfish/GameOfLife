@@ -1,5 +1,5 @@
 #importing libraries
-import pygame, sys, copy
+import pygame, sys, copy, asyncio
 
 #i gotta run this in 3.13 so this is a note to myself:
 # py -3.13 GameOfLife.py
@@ -111,7 +111,7 @@ pauseButton = Button(100, GRID_HEIGHT * BLOCK_WIDTH + 10, 80, 30, "Pause")
 
 font = pygame.font.Font(None, 32) 
 
-def main():
+async def main():
     global updateTimer, updateInterval, running, pauseButton, curSpeed, speedButton, pause
     #while the program is running-- continuously updates
     running = True
@@ -177,9 +177,11 @@ def main():
             updateTimer = 0.0
             # Recalculate interval if speed changed
             updateInterval = 1.0 / speeds[curSpeed]
+        
+        await asyncio.sleep(0)
 
     #quits the program
     pygame.quit()
 
-main()
+asyncio.run(main())
 sys.exit()
