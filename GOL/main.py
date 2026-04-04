@@ -127,8 +127,7 @@ async def main():
             if event.type == pygame.MOUSEBUTTONDOWN:
                 if event.button == 1:  #left mouse button
                     x, y = pygame.mouse.get_pos()
-                    if y < GRID_HEIGHT * BLOCK_WIDTH:  # Clicked in the UI area, not the grid
-                        # // is for integer division btw
+                    if y < GRID_HEIGHT * BLOCK_WIDTH: 
                         gridX = x // BLOCK_WIDTH  # Calculate which column in the grid
                         gridY = y // BLOCK_WIDTH  # Calculate which row in the grid
                         #update the color of the clicked square
@@ -181,7 +180,7 @@ async def main():
         await asyncio.sleep(0)
 
     #quits the program
-    pygame.quit()
+    #pygame.quit()
 
 asyncio.run(main())
-sys.exit()
+# sys.exit()
